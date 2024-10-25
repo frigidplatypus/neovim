@@ -1,0 +1,6 @@
+{
+
+  colorschemes.gruvbox = {
+    enable = true;
+  };
+}
