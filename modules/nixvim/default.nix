@@ -4,10 +4,6 @@
 
   luaLoader.enable = true;
 
-  extraPlugins = with pkgs.vimPlugins; [
-    vim-bufkill
-  ];
-
   globals = {
     mapleader = " ";
     maplocalleader = " ";
@@ -41,8 +37,6 @@
     swapfile = false;
     backup = false;
     undofile = true;
-
-    termguicolors = true;
 
     ignorecase = true;
     smartcase = true;
