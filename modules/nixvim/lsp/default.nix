@@ -142,8 +142,8 @@ in
 
     servers = {
       cssls.enable = true;
-      docker-compose-language-service.enable = true;
-      nginx-language-server.enable = true;
+      docker_compose_language_service.enable = true;
+      nginx_language_server.enable = true;
       nixd = {
         enable = true;
 
