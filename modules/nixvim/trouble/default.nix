@@ -1,6 +1,6 @@
 {
   plugins.trouble = {
-    enable = true;
+    enable = false;
 
     settings = {
       auto_close = true;

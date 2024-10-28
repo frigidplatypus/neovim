@@ -1,6 +1,6 @@
 {
   plugins.goyo = {
-    enable = true;
+    enable = false;
   };
 
   keymaps = [

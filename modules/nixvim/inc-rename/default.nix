@@ -1,1 +1,1 @@
-{ plugins.inc-rename.enable = true; }
+{ plugins.inc-rename.enable = false; }
