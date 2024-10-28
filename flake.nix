@@ -33,7 +33,7 @@
       src = ./.;
 
       snowfall = {
-        namespace = "plusultra";
+        namespace = "ftgd";
       };
 
       channels-config.allowUnfree = true;
