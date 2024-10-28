@@ -14,7 +14,7 @@
   };
 
   opts = {
-    # smartindent = true;
+    smartindent = true;
     breakindent = true;
     cursorline = true;
 
@@ -94,7 +94,25 @@
     }
     {
       mode = "n";
+      key = "L";
+      action = "<cmd>:bnext<cr>";
+      options = {
+        silent = true;
+        desc = "Next buffer";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>bp";
+      action = "<cmd>:bprevious<cr>";
+      options = {
+        silent = true;
+        desc = "Previous buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "H";
       action = "<cmd>:bprevious<cr>";
       options = {
         silent = true;
