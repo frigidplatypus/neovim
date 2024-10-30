@@ -51,7 +51,12 @@
             nixfmt = {
               enable = true;
               entry = "${channels.nixpkgs.nixfmt-rfc-style}/bin/nixfmt";
-              extraPackages = [ channels.nixpkgs.nixfmt-rfc-style ];
+              extraPackages = [
+                channels.nixpkgs.nixfmt-rfc-style
+                channels.nixpkgs.nixd
+                channels.nixpkgs.alejandra
+                channels.nixpkgs.ripgrep
+              ];
             };
           };
         };
