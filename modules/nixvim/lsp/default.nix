@@ -1,13 +1,4 @@
-{ helpers, pkgs, ... }:
-let
-  thunk =
-    body:
-    helpers.mkRaw ''
-      function()
-        ${body}
-      end
-    '';
-in
+{ pkgs, ... }:
 {
   extraPackages = with pkgs; [
     nixfmt-rfc-style
@@ -18,35 +9,12 @@ in
   ];
 
   extraConfigLua = ''
-    do
-    	require("actions-preview").setup({
-    		diff = {
-    			ignore_whitespace = true,
-    		},
-    		highlight_command = {
-    			require("actions-preview.highlight").diff_highlight()
-    		},
-    		backend = { "telescope" },
-    	})
-    end
-  '';
-
-  extraConfigLuaPre = ''
-    do
-      local diagnostic_signs = { Error = "", Warn = "", Hint = "", Info = "" }
-
-      for type, icon in pairs(diagnostic_signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
-
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        update_in_insert = true,
-        virtual_text = { spacing = 4, prefix = "●" },
-        severity_sort = true,
-      })
-    end
+    			vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
+    });
   '';
 
   autoCmd = [
@@ -86,64 +54,16 @@ in
         gD = "type_definition";
       };
 
-      extra = [
-        {
-          action = thunk "vim.cmd [[<cmd>LspStop<CR>]]";
-          key = "<leader>lx";
-          options = {
-            desc = "LSP: Stop";
-            silent = true;
-          };
-        }
-        {
-          action = thunk "vim.cmd [[<cmd>LspStart<CR>]]";
-          key = "<leader>ls";
-          options = {
-            desc = "LSP: Start";
-            silent = true;
-          };
-        }
-        {
-          action = thunk "vim.cmd [[<cmd>LspRestart<CR>]]";
-          key = "<leader>lr";
-          options = {
-            desc = "LSP: Restart";
-            silent = true;
-          };
-        }
-        {
-          action =
-            helpers.mkRaw
-              # lua
-              ''
-                require('telescope.builtin').lsp_definitions
-              '';
-          key = "<leader>gd";
-          options = {
-            desc = "LSP: Definitions";
-            silent = true;
-          };
-        }
-        {
-          action =
-            helpers.mkRaw
-              # lua
-              ''
-                require('actions-preview').code_actions
-              '';
-          key = "<leader>ca";
-          options = {
-            desc = "LSP: Code Actions";
-            silent = true;
-          };
-        }
-      ];
     };
 
     servers = {
       cssls.enable = true;
       docker_compose_language_service.enable = true;
       nginx_language_server.enable = true;
+      bashls.enable = true;
+      marksman.enable = true;
+      #fish_lsp.enable = true;
+      openscad_lsp.enable = true;
       nixd = {
         enable = true;
 
