@@ -1,5 +1,5 @@
 {
-  plugins.hop.enable = false;
+  plugins.hop.enable = true;
 
   keymaps = [
     {
