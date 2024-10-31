@@ -1,5 +1,5 @@
 {
-  description = "Jake Hamilton's Neovim configuration";
+  description = "Neovim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -53,9 +53,6 @@
               entry = "${channels.nixpkgs.nixfmt-rfc-style}/bin/nixfmt";
               extraPackages = [
                 channels.nixpkgs.nixfmt-rfc-style
-                channels.nixpkgs.nixd
-                channels.nixpkgs.alejandra
-                channels.nixpkgs.ripgrep
               ];
             };
           };
