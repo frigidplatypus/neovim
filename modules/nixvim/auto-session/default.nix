@@ -6,7 +6,7 @@
       enabled = true;
       createEnabled = true;
       use_git_branch = true;
-      auto_restore = true;
+      auto_restore = false;
       auto_save = true;
       bypass_save_filetypes = [
         "dashboard"
