@@ -1,3 +1,5 @@
 result
 noice.log
 .stfolder
+.stignore
+.DS_Store
