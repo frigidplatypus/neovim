@@ -9,12 +9,12 @@
     {
       mode = "n";
       key = "<leader>e";
-      action = "<cmd>Neotree focus<cr>";
+      action = "<cmd>Neotree toggle<cr>";
     }
     {
       mode = "n";
       key = "<leader>fe";
-      action = "<cmd>Neotree toggle<cr>";
+      action = "<cmd>Neotree focus<cr>";
     }
   ];
 }
