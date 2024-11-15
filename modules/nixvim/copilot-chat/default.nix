@@ -4,6 +4,9 @@
 
     settings = {
       context = "buffers";
+      window = {
+        layout = "float";
+      };
     };
   };
 }
