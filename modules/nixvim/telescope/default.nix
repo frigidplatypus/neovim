@@ -12,6 +12,13 @@
           desc = "Telescope: Files";
         };
       };
+      "<leader><leader>" = {
+        action = "git_files";
+        options = {
+          desc = "Telescope: Files";
+        };
+      };
+      };
       "<leader>ff" = {
         action = "git_files";
         options = {
