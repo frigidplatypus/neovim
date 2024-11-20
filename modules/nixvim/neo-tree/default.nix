@@ -8,7 +8,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>e";
+      key = "<leader>fn";
       action = "<cmd>Neotree toggle<cr>";
     }
     {
