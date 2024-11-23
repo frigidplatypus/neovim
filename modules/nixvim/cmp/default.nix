@@ -80,9 +80,9 @@
     };
 
     # cmp-cmdline.enable = true;
-    # copilot-cmp.enable = true;
+    copilot-cmp.enable = true;
     # cmp-dictionary.enable = true;
-    # cmp-fuzzy-path.enable = true;
+    cmp-fuzzy-path.enable = true;
     # cmp-fuzzy-buffer.enable = true;
     # cmp-nvim-lsp.enable = true;
     # cmp_luasnip.enable = true;
