@@ -9,4 +9,11 @@
       };
     };
   };
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>cc";
+      action = "<cmd>CopilotChatToggle<cr>";
+    }
+  ];
 }
