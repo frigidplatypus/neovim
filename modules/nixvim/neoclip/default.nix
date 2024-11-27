@@ -1,0 +1,6 @@
+{
+  plugins.neoclip = {
+    enable = true;
+
+  };
+}
