@@ -1,10 +1,11 @@
 {
   plugins.floaterm = {
     enable = true;
+    wintype = "split";
     keymaps = {
-      toggle = "<C-/>";
+      toggle = "<leader>ft";
     };
-    height = 0.9;
-    width = 0.9;
+     height = 0.3;
+    # width = 0.9;
   };
 }
