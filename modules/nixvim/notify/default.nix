@@ -1,6 +1,6 @@
 {
   plugins.notify = {
-    enable = true;
+    enable = false;
 
     level = 2;
     topDown = false;
