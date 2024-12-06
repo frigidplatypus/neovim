@@ -25,7 +25,7 @@
 
     signcolumn = "yes:1";
 
-    mouse = "";
+    # mouse = "";
 
     foldcolumn = "0";
     foldlevel = 99;
@@ -115,7 +115,7 @@
     }
     {
       mode = "t";
-      key = "<C-o>";
+      key = "<esc><esc>";
       action = ''<C-\><C-n>'';
       options = {
         silent = true;

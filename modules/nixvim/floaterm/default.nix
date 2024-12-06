@@ -5,7 +5,8 @@
     keymaps = {
       toggle = "<leader>ft";
     };
-     height = 0.3;
+    height = 0.3;
     # width = 0.9;
   };
+
 }
