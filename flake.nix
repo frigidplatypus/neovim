@@ -33,7 +33,7 @@
       src = ./.;
 
       snowfall = {
-        namespace = "frgd";
+        namespace = "frgd-notes";
       };
 
       channels-config.allowUnfree = true;
