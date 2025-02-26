@@ -62,6 +62,7 @@
       nginx_language_server.enable = true;
       bashls.enable = true;
       marksman.enable = true;
+      perlpls.enable = true;
       #fish_lsp.enable = true;
       openscad_lsp.enable = true;
       nixd = {
