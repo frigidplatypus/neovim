@@ -1,9 +1,10 @@
 {
   plugins.notify = {
     enable = false;
-
-    level = 2;
-    topDown = false;
-    maxWidth = 600;
+    settings = {
+      level = 2;
+      topDown = false;
+      maxWidth = 600;
+    };
   };
 }
