@@ -15,5 +15,10 @@
       key = "<leader>cc";
       action = "<cmd>CopilotChatToggle<cr>";
     }
+    {
+      mode = "v";
+      key = "<leader>cc";
+      action = "<cmd>CopilotChatToggle<cr>";
+    }
   ];
 }
