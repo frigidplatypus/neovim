@@ -4,7 +4,7 @@
 
     settings = {
       panel = {
-        enabled = true;
+        enabled = false;
         autoRefresh = true;
         keymap = {
           jumpPrev = "[[";
