@@ -85,7 +85,7 @@
     cmp-fuzzy-path.enable = true;
     # cmp-fuzzy-buffer.enable = true;
     # cmp-nvim-lsp.enable = true;
-    # cmp_luasnip.enable = true;
+    cmp_luasnip.enable = true;
 
     cmp_yanky.enable = true;
   };
