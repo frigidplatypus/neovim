@@ -42,6 +42,11 @@
 
       overlays = with inputs; [ nixvim.overlays.default ];
 
+      # NOTE: We do not manually list packages here; Snowfall Lib auto-discovers
+      # any package directories under packages/. This keeps flake outputs
+      # aligned with spec/constitution guidance and avoids drift when adding
+      # new variants (e.g. neovim-kanagawa, neovim-minimal, neovim-dev, etc.).
+
       outputs-builder = channels: {
         formatter = channels.nixpkgs.nixfmt-rfc-style;
 

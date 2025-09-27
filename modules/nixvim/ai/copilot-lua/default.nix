@@ -1,7 +1,8 @@
-{
-  plugins.copilot-lua = {
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "copilot-lua" {
+  plugins."copilot-lua" = {
     enable = true;
-
     settings = {
       panel = {
         enabled = false;
@@ -44,5 +45,4 @@
       };
     };
   };
-
 }

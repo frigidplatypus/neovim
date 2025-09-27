@@ -1,19 +1,21 @@
-{ lib, pkgs ? import <nixpkgs> {} }:
-
-# neovim-minimal package scaffold
-# This file composes a `frgdNeovim.nixvim` config attrset enabling core modules
+{ lib, pkgs, inputs, ... }:
+## neovim-minimal variant
+## Enable only a subset of migrated core modules.
 let
-  core = import ../specs/002-modules-should-have/core-modules.nix {};
-in
-{
-  # Expose composed configuration for downstream flake integration
-  config = {
-    frgdNeovim = {
-      nixvim = lib.listToAttrs (map (m: { name = m; value = { enable = true; }; }) core);
+  base = import ../neovim {
+    inherit lib pkgs inputs;
+    neovim-config = {
+      frgdNeovim.nixvim = {
+        treesitter.enable = true;
+        "which-key".enable = true;
+        autopairs.enable = true;
+        clipboard.enable = true;
+      };
     };
   };
-
-  # Note: This is a scaffold. To produce an actual package derivation that builds
-  # Neovim with the composed configuration, connect this file into the repository
-  # flake.nix and reference existing neovim build derivations. See T019/T023 for test wiring.
-}
+in base.overrideAttrs (old: {
+  pname = "neovim-minimal";
+  meta = (old.meta or { }) // {
+    description = "Neovim (minimal profile; core subset)";
+  };
+})

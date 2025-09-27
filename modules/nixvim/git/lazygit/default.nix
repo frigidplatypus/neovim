@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "lazygit" {
   plugins.lazygit.enable = true;
   keymaps = [
     {

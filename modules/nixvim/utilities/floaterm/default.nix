@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "floaterm" {
   plugins.floaterm = {
     enable = true;
     settings = {

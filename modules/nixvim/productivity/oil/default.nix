@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "oil" {
   plugins.oil = {
     enable = true;
     settings = {

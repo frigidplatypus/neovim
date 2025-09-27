@@ -1,1 +1,5 @@
-{ plugins.quickmath.enable = false; }
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "quickmath" {
+	plugins.quickmath.enable = false;
+}

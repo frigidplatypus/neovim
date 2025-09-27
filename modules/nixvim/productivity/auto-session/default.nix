@@ -1,17 +1,15 @@
-{
-  plugins.auto-session = {
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "auto-session" {
+  plugins."auto-session" = {
     enable = true;
-
     settings = {
       enabled = true;
       createEnabled = true;
       use_git_branch = true;
       auto_restore = false;
       auto_save = true;
-      bypass_save_filetypes = [
-        "dashboard"
-        "nvim-tree"
-      ];
+      bypass_save_filetypes = [ "dashboard" "nvim-tree" ];
     };
   };
 
@@ -20,9 +18,7 @@
       mode = "n";
       action = "<cmd>Telescope session-lens<cr>";
       key = "<leader>fs";
-      options = {
-        desc = "Find Session";
-      };
+      options = { desc = "Find Session"; };
     }
   ];
 }
