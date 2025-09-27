@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "neoclip" {
   plugins.neoclip = {
     enable = true;
     settings = {
@@ -32,5 +34,6 @@
       };
       preview = true;
     };
+    
   };
 }

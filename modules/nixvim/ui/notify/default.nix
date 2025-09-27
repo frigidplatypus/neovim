@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "notify" {
   plugins.notify = {
     enable = false;
     settings = {

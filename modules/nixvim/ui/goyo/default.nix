@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "goyo" {
   plugins.goyo = {
     enable = false;
   };

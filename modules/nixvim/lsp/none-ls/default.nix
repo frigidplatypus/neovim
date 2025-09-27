@@ -1,11 +1,8 @@
-{
-  plugins.none-ls = {
-    enable = false;
-
-    sources = {
-      diagnostics = {
-        deadnix.enable = true;
-      };
-    };
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "none-ls" {
+  plugins."none-ls" = {
+    enable = true;
+    sources.diagnostics.deadnix.enable = true;
   };
 }

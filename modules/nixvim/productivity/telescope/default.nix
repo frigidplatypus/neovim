@@ -1,5 +1,6 @@
-{ helpers, pkgs, ... }:
-{
+{ lib, pkgs, ... }:
+let wrap = lib.moduleEnable;
+in wrap "telescope" {
   extraPackages = with pkgs; [ ripgrep ];
 
   plugins.telescope = {
@@ -51,3 +52,4 @@
     };
   };
 }
+

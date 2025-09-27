@@ -1,24 +1,15 @@
-{
-  plugins.copilot-chat = {
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "copilot-chat" {
+  plugins."copilot-chat" = {
     enable = true;
-
     settings = {
       context = "buffers";
-      window = {
-        layout = "float";
-      };
+      window.layout = "float";
     };
   };
   keymaps = [
-    {
-      mode = "n";
-      key = "<leader>cc";
-      action = "<cmd>CopilotChatToggle<cr>";
-    }
-    {
-      mode = "v";
-      key = "<leader>cc";
-      action = "<cmd>CopilotChatToggle<cr>";
-    }
+    { mode = "n"; key = "<leader>cc"; action = "<cmd>CopilotChatToggle<cr>"; }
+    { mode = "v"; key = "<leader>cc"; action = "<cmd>CopilotChatToggle<cr>"; }
   ];
 }

@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "hop" {
   plugins.hop.enable = true;
 
   keymaps = [

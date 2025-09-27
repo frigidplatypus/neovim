@@ -1,5 +1,6 @@
-{ pkgs, ... }:
-{
+{ pkgs, lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "noice" {
   extraPlugins = with pkgs.vimPlugins; [ nui-nvim ];
 
   plugins.noice = {

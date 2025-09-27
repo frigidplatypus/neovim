@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-{
+{ lib, pkgs, ... }:
+let wrap = lib.moduleEnable;
+in wrap "lsp-config" {
+  
   extraPackages = with pkgs; [
     nixfmt-rfc-style
   ];

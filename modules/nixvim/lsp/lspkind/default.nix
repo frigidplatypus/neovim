@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "lspkind" {
   plugins.lspkind = {
     enable = true;
 

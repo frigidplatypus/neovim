@@ -3,3 +3,18 @@ noice.log
 .stfolder
 .stignore
 .DS_Store
+
+# Local logs and runtime
+logs/
+.cache/
+
+# Editors
+*.swp
+*~
+.vscode/
+.idea/
+
+# Node / build artifacts
+node_modules/
+dist/
+

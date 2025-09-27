@@ -1,4 +1,6 @@
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable; in
+wrap "yanky" {
   plugins.yanky = {
     enable = true;
     settings = {

@@ -1,1 +1,5 @@
-{ plugins.colorizer.enable = true; }
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "colorizer" {
+	plugins.colorizer.enable = true;
+}

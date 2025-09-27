@@ -1,5 +1,6 @@
-{ helpers, pkgs, ... }:
-{
+{ lib, ... }:
+let wrap = lib.moduleEnable;
+in wrap "dashboard" {
   plugins.dashboard = {
     enable = true;
 
