@@ -1,3 +1,17 @@
+{ lib, pkgs ? import <nixpkgs> {} }:
+
+let
+  cats = builtins.attrNames (builtins.readDir ./../modules/nixvim);
+  gather = cat: builtins.attrNames (builtins.readDir ("../modules/nixvim/" + cat));
+  modules = lib.concatLists (map gather cats);
+in
+{
+  config = {
+    frgdNeovim = {
+      nixvim = lib.listToAttrs (map (m: { name = m; value = { enable = true; }; }) modules);
+    };
+  };
+}
 {
   lib,
   pkgs,
