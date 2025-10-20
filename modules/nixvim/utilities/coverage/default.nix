@@ -4,6 +4,6 @@ in wrap "coverage" {
   plugins.coverage = {
     enable = false;
 
-    autoReload = true;
+    settings.auto_reload = true;
   };
 }

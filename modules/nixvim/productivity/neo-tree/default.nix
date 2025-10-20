@@ -3,8 +3,8 @@ let wrap = lib.moduleEnable; in
 wrap "neo-tree" {
   plugins."neo-tree" = {
     enable = true;
-    autoCleanAfterSessionRestore = true;
-    closeIfLastWindow = true;
+    settings.auto_clean_after_session_restore = true;
+    settings.close_if_last_window = true;
   };
   keymaps = [
     { mode = "n"; key = "<leader>fn"; action = "<cmd>Neotree toggle<cr>"; }

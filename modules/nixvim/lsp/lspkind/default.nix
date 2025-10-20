@@ -4,11 +4,11 @@ in wrap "lspkind" {
   plugins.lspkind = {
     enable = true;
 
-    symbolMap = {
+    settings.symbol_map = {
       Copilot = "";
     };
 
-    extraOptions = {
+    settings = {
       maxwidth = 50;
       ellipsis_char = "...";
     };

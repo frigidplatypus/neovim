@@ -8,8 +8,6 @@ wrap "copilot-lua" {
         enabled = false;
         autoRefresh = true;
         keymap = {
-          jumpPrev = "[[";
-          jumpNext = "]]";
           accept = "<cr>";
           refresh = "gr";
           open = "<C-CR>";
