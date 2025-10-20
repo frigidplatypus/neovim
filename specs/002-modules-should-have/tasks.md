@@ -149,8 +149,8 @@ T016 Packages: Create package derivation for `neovim-dev` [partial]
 - Depends on: T007, T013
   - Note: scaffold created; build wiring pending
 
-T017 Packages: Create package derivation for `neovim-writer` [partial]
-- Create: `packages/neovim-writer/default.nix` (scaffold)
+T017 Packages: Create package derivation for `neovim-notes` [partial]
+- Create: `packages/neovim-notes/default.nix` (scaffold)
 - Content: Writing profile (core + productivity + ui subset)
 - Depends on: T007, T013
   - Note: scaffold created; build wiring pending

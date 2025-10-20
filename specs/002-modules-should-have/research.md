@@ -74,7 +74,7 @@ References
 - `neovim` (default) - All modules enabled
 - `neovim-minimal` - Core modules only (autopairs, clipboard, treesitter, which-key)
 - `neovim-dev` - Development focused (core + lsp + git + formatting + search)
-- `neovim-writer` - Writing focused (core + productivity + ui subset)
+- `neovim-notes` - Writing focused (core + productivity + ui subset)
 
 **Rationale**:
 - Covers primary user personas identified in specification

@@ -73,7 +73,7 @@ All edge cases are handled by Nix's evaluation system:
 - **FR-007**: Users MUST be able to create custom package variants without modifying core module definitions
 - **FR-008**: System MUST provide clear feedback when module combinations are invalid or incomplete
 - **FR-009**: Generated packages MUST maintain the same performance characteristics as the current monolithic approach
--- **FR-010**: System MUST allow package generation for special use cases such as language-specific (e.g., `python`, `go`), environment-specific (e.g., `remote`, `docker`), and role-specific (e.g., `writer`, `teacher`).
+-- **FR-010**: System MUST allow package generation for special use cases such as language-specific (e.g., `python`, `go`), environment-specific (e.g., `remote`, `docker`), and role-specific (e.g., `notes`, `teacher`).
 
 ### Key Entities *(include if feature involves data)*
 - **Module**: Individual nixvim plugin configuration with enable/disable option and dependency information

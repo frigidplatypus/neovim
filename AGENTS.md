@@ -23,7 +23,7 @@
 
 ## Modular Nix Configuration with Snowfall-Lib
 
-This repository uses the [Snowfall-Lib](https://github.com/snowfallorg/lib) directory structure and module system to manage Neovim configuration in a scalable, maintainable, and composable way. Each feature or plugin is encapsulated as a module under `modules/nixvim/`, and profiles/packages (such as `neovim`, `neovim-writer`, etc.) selectively enable or disable modules as needed. This approach allows for easy customization, testing, and extension of the Neovim environment.
+This repository uses the [Snowfall-Lib](https://github.com/snowfallorg/lib) directory structure and module system to manage Neovim configuration in a scalable, maintainable, and composable way. Each feature or plugin is encapsulated as a module under `modules/nixvim/`, and profiles/packages (such as `neovim`, `neovim-notes`, etc.) selectively enable or disable modules as needed. This approach allows for easy customization, testing, and extension of the Neovim environment.
 
 ## Copilot/Technology Stack
 - See `.github/copilot-instructions.md` for stack and structure references
