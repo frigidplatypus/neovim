@@ -94,9 +94,9 @@ packages/
 ├── neovim/                 # Default full-featured package
 ├── neovim-minimal/         # Minimal configuration package
 ├── neovim-dev/             # Development-focused package
-└── neovim-writer/          # Writing-focused package
+└── neovim-notes/          # Writing-focused package
 ├── neovim-dev/             # Development-focused package
-├── neovim-writer/          # Writing-focused package
+├── neovim-notes/          # Writing-focused package
 ├── neovim-remote/          # Remote/workspace-focused package
 
 shells/

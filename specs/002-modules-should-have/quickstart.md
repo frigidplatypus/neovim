@@ -36,7 +36,7 @@ nix build .#packages.x86_64-linux.neovim-minimal
 nix build .#packages.x86_64-linux.neovim          # Full configuration
 nix build .#packages.x86_64-linux.neovim-minimal  # Core only
 nix build .#packages.x86_64-linux.neovim-dev      # Development focused
-nix build .#packages.x86_64-linux.neovim-writer   # Writing focused
+nix build .#packages.x86_64-linux.neovim-notes   # Writing focused
 
 # Verify they all work
 ./result/bin/nvim --version
@@ -65,7 +65,7 @@ nix build .#packages.x86_64-linux.neovim-minimal
 #### Story 3: Writing-Focused Setup
 ```bash
 # User wants distraction-free writing environment
-nix build .#packages.x86_64-linux.neovim-writer
+nix build .#packages.x86_64-linux.neovim-notes
 ./result/bin/nvim document.md
 # Should have: markdown preview, distraction-free mode, session management
 # Should not have: LSP completion, git integration, development tools
