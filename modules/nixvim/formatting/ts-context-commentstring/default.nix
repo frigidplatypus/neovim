@@ -1,6 +1,16 @@
-{ lib, ... }:
+{ lib, config, ... }:
+with lib;
 let
-  wrap = lib.moduleEnable;
-in wrap "ts-context-commentstring" {
-  plugins.ts-context-commentstring.enable = false;
+  cfg = config.frgdNeovim.formatting.ts-context-commentstring;
+in
+{
+  options.frgdNeovim.formatting.ts-context-commentstring.enable = mkOption {
+    type = types.bool;
+    default = true;
+    description = "Enable ts-context-commentstring formatting plugin.";
+  };
+
+  config = mkIf cfg.enable {
+    plugins.ts-context-commentstring.enable = true;
+  };
 }

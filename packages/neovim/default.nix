@@ -14,17 +14,25 @@ let
   # Import module-enable helper and extend lib that we pass into evaluated modules.
   # Inline moduleEnable helper so it is always available when evaluating
   # modules (avoids store path import resolution issues).
-  moduleEnable = name: moduleBody: { lib, config, ... }: let nm = name; in {
-    options.frgdNeovim.nixvim.${nm}.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable the ${nm} feature module.";
+  moduleEnable =
+    name: moduleBody:
+    { lib, config, ... }:
+    let
+      nm = name;
+    in
+    {
+      options.frgdNeovim.nixvim.${nm}.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Enable the ${nm} feature module.";
+      };
+
+      config = lib.mkIf (config.frgdNeovim.nixvim.${nm}.enable) moduleBody;
     };
 
-    config = lib.mkIf (config.frgdNeovim.nixvim.${nm}.enable) moduleBody;
+  libForModules = lib // {
+    moduleEnable = moduleEnable;
   };
-
-  libForModules = lib // { moduleEnable = moduleEnable; };
 
   # Some modules use a local `wrap` helper that returns a function which
   # expects the module args (e.g. older inline wrap patterns). Support both
@@ -35,18 +43,22 @@ let
     args@{ ... }:
     let
       module = import raw-module;
-      initialResult = if builtins.isFunction module then
-        module (args // { lib = libForModules; inherit pkgs; })
-      else
-        module;
+      initialResult =
+        if builtins.isFunction module then
+          module (
+            args
+            // {
+              lib = libForModules;
+              inherit pkgs;
+            }
+          )
+        else
+          module;
 
       # If the module returned another function (older wrap style), call it
       # with the same args so we end up with an attrset as expected by
       # nixvim.makeNixvimWithModule.
-      result = if builtins.isFunction initialResult then
-        initialResult args
-      else
-        initialResult;
+      result = if builtins.isFunction initialResult then initialResult args else initialResult;
     in
     result // { _file = raw-module; }
   ) raw-modules;
@@ -57,16 +69,15 @@ let
     module = {
       imports = wrapped-modules;
 
-      config = lib.mkMerge [
-        {
-          _module.args = {
-            settings = neovim-settings;
-            lib = lib.mkForce lib;
-          };
-        }
-
-        neovim-config
-      ];
+       config = lib.mkMerge [
+         {
+           _module.args = {
+             settings = neovim-settings;
+             lib = lib;
+           };
+         }
+         neovim-config
+       ];
     };
   };
 

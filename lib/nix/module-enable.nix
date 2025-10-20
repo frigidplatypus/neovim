@@ -8,7 +8,9 @@
 
 name: moduleBody:
 { lib, config, ... }:
-let nm = name; in
+let
+  nm = name;
+in
 {
   options.frgdNeovim.nixvim.${nm}.enable = lib.mkOption {
     type = lib.types.bool;

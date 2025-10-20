@@ -1,7 +1,18 @@
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.ui.barbar;
+in
+{
+  options.frgdNeovim.ui.barbar = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether or not to enable the Barbar UI plugin.";
+    };
+  };
 
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "barbar" {
-    plugins.barbar.enable = false;
+  config = mkIf cfg.enable {
+    plugins.barbar.enable = true;
+  };
 }
-

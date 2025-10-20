@@ -1,7 +1,17 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable; in
-wrap "codecompanion" {
-  plugins."codecompanion" = {
-    enable = true;
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.ai.codecompanion;
+in
+{
+  options.frgdNeovim.ai.codecompanion = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether or not to enable the codecompanion plugin.";
+    };
+  };
+  config = mkIf cfg.enable {
+    plugins."codecompanion".enable = true;
   };
 }

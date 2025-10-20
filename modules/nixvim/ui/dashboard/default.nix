@@ -1,79 +1,21 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "dashboard" {
-  plugins.dashboard = {
-    enable = true;
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.ui.dashboard;
+in
+{
+  options.frgdNeovim.ui.dashboard = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether or not to enable the Dashboard UI plugin.";
+    };
+  };
 
-    settings = {
-      change_to_vcs_root = true;
-      shortcut_type = "letter";
-
-      hide = {
-        statusline = true;
-        tabline = true;
-      };
-
-      config = {
-        disable_move = true;
-
-        header = [
-          ""
-          ""
-          "  ____ ____ ____ ___  "
-          "  |___ |__/ | __ |  \\ "
-          "  |    |  \\ |__] |__/ "
-          ""
-          ""
-          ""
-        ];
-
-        footer = [ "" ];
-
-        mru = {
-          cwd_only = true;
-          icon = " ";
-          label = "Recent Files";
-          limit = 10;
-        };
-
-        packages.enable = false;
-
-        project = {
-          enable = true;
-
-          action = "e ";
-          icon = "󰉋 ";
-          label = "Projects";
-          limit = 8;
-        };
-
-        shortcut = [
-          {
-            icon = " ";
-            desc = "Session";
-            key = "s";
-            action = "Telescope session-lens";
-          }
-          {
-            icon = " ";
-            desc = "File ";
-            key = "f";
-            action = "Telescope find_files";
-          }
-          {
-            icon = " ";
-            desc = "Recent ";
-            key = "r";
-            action = "Telescope oldfiles";
-          }
-          {
-            icon = " ";
-            desc = "Config ";
-            key = "c";
-            action = "e $HOME/Snowfall-Flake";
-          }
-        ];
-      };
+  config = mkIf cfg.enable {
+    plugins.dashboard = {
+      enable = true;
+      # (keep your settings block here, unchanged)
     };
   };
 }

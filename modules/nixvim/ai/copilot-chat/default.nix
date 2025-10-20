@@ -1,15 +1,35 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable; in
-wrap "copilot-chat" {
-  plugins."copilot-chat" = {
-    enable = true;
-    settings = {
-      context = "buffers";
-      window.layout = "float";
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.ai.copilotChat;
+in
+{
+  options.frgdNeovim.ai.copilotChat = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether or not to enable the copilot-chat plugin.";
     };
   };
-  keymaps = [
-    { mode = "n"; key = "<leader>cc"; action = "<cmd>CopilotChatToggle<cr>"; }
-    { mode = "v"; key = "<leader>cc"; action = "<cmd>CopilotChatToggle<cr>"; }
-  ];
+  config = mkIf cfg.enable {
+    plugins."copilot-chat" = {
+      enable = true;
+      settings = {
+        context = "buffers";
+        window.layout = "float";
+      };
+    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>cc";
+        action = "<cmd>CopilotChatToggle<cr>";
+      }
+      {
+        mode = "v";
+        key = "<leader>cc";
+        action = "<cmd>CopilotChatToggle<cr>";
+      }
+    ];
+  };
 }

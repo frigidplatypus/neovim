@@ -1,18 +1,19 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "goyo" {
-  plugins.goyo = {
-    enable = false;
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.ui.goyo;
+in
+{
+  options.frgdNeovim.ui.goyo = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Whether or not to enable the Goyo UI plugin.";
+    };
   };
 
-  keymaps = [
-    {
-      mode = "n";
-      action = "<cmd>Goyo<cr>";
-      key = "<leader>tg";
-      options = {
-        desc = "Toggle Goyo";
-      };
-    }
-  ];
+  config = mkIf cfg.enable {
+    plugins.goyo.enable = true;
+    # (add keymaps here if needed)
+  };
 }

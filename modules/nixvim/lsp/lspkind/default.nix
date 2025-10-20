@@ -1,16 +1,25 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "lspkind" {
-  plugins.lspkind = {
-    enable = true;
+{ lib, config, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.lsp.lspkind;
+in
+{
+  options.frgdNeovim.lsp.lspkind.enable = mkOption {
+    type = types.bool;
+    default = true;
+    description = "Enable lspkind LSP plugin.";
+  };
 
-    settings.symbol_map = {
-      Copilot = "";
-    };
-
-    settings = {
-      maxwidth = 50;
-      ellipsis_char = "...";
+  config = mkIf cfg.enable {
+    plugins.lspkind = {
+      enable = true;
+      settings.symbol_map = {
+        Copilot = "\uf113";
+      };
+      settings = {
+        maxwidth = 50;
+        ellipsis_char = "...";
+      };
     };
   };
 }

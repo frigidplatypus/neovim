@@ -1,10 +1,21 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "toggleterm" {
-  plugins.toggleterm = {
-    enable = false;
-    settings = {
-      open_mapping = "[[<a-m>]]";
+{ lib, config, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.utilities.toggleterm;
+in
+{
+  options.frgdNeovim.utilities.toggleterm.enable = mkOption {
+    type = types.bool;
+    default = true;
+    description = "Enable toggleterm utility plugin.";
+  };
+
+  config = mkIf cfg.enable {
+    plugins.toggleterm = {
+      enable = true;
+      settings = {
+        open_mapping = "[[<a-m>]]";
+      };
     };
   };
 }

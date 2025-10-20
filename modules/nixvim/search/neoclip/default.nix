@@ -1,39 +1,49 @@
-{ lib, ... }:
-let wrap = lib.moduleEnable;
-in wrap "neoclip" {
-  plugins.neoclip = {
-    enable = true;
-    settings = {
-      content_spec_column = false;
-      default_register = "\"";
-      filter = null;
-      keys = {
-        fzf = {
-          custom = { };
-          paste = "ctrl-l";
-          paste_behind = "ctrl-h";
-          select = "default";
-        };
-        telescope = {
-          i = {
+{ lib, config, ... }:
+with lib;
+let
+  cfg = config.frgdNeovim.search.neoclip;
+in
+{
+  options.frgdNeovim.search.neoclip.enable = mkOption {
+    type = types.bool;
+    default = true;
+    description = "Enable neoclip search plugin.";
+  };
+
+  config = mkIf cfg.enable {
+    plugins.neoclip = {
+      enable = true;
+      settings = {
+        content_spec_column = false;
+        default_register = "\"";
+        filter = null;
+        keys = {
+          fzf = {
             custom = { };
-            paste = "<c-l>";
-            paste_behind = "<c-h>";
-            select = "<cr>";
+            paste = "ctrl-l";
+            paste_behind = "ctrl-h";
+            select = "default";
           };
-          n = {
-            custom = { };
-            paste = "p";
-            paste_behind = "P";
-            select = "<cr>";
+          telescope = {
+            i = {
+              custom = { };
+              paste = "<c-l>";
+              paste_behind = "<c-h>";
+              select = "<cr>";
+            };
+            n = {
+              custom = { };
+              paste = "p";
+              paste_behind = "P";
+              select = "<cr>";
+            };
           };
         };
+        on_paste = {
+          set_reg = false;
+        };
+        preview = true;
       };
-      on_paste = {
-        set_reg = false;
-      };
-      preview = true;
     };
-    
   };
 }
