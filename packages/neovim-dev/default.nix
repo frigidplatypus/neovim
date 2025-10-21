@@ -16,6 +16,7 @@ let
       frgdNeovim.core.treesitter.highlight.enable = true;
       frgdNeovim.ui.web-devicons.enable = true;
       frgdNeovim.core.whichKey.enable = true;
+      frgdNeovim.ui.colorschemes.default = "kanagawa";
     };
   };
 in

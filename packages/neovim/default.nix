@@ -69,15 +69,15 @@ let
     module = {
       imports = wrapped-modules;
 
-       config = lib.mkMerge [
-         {
-           _module.args = {
-             settings = neovim-settings;
-             lib = lib;
-           };
-         }
-         neovim-config
-       ];
+      config = lib.mkMerge [
+        {
+          _module.args = {
+            settings = neovim-settings;
+            lib = lib;
+          };
+        }
+        neovim-config
+      ];
     };
   };
 

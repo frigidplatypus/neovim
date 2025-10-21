@@ -1,0 +1,16 @@
+[
+  ./auto-session
+  ./comment
+  ./hop
+  ./inc-rename
+  ./mini
+  ./navic
+  ./neo-tree
+  ./neoscroll
+  ./oil
+  ./surround
+  ./telescope
+  ./tmux
+  ./wrapping
+  ./yanky
+]

@@ -21,9 +21,9 @@ in
     extraPlugins = with pkgs.vimPlugins; [ nui-nvim ];
     plugins.noice.enable = true;
     plugins.noice.settings = {
-  presets = {
-    bottom_search = true;
-  };
+      presets = {
+        bottom_search = true;
+      };
 
       views = {
         cmdline_popup = {
