@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.search."todo-comments".enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable todo-comments search plugin.";
   };
 

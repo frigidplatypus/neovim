@@ -11,7 +11,7 @@ in
 {
   options.frgdNeovim.git.gitsigns.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable gitsigns git plugin.";
   };
 
@@ -34,34 +34,32 @@ in
             local which_key = require("which-key")
             local gitsigns = require("gitsigns")
             which_key.register({
-              ["["] = { c = { function()
+              { "[c", function()
                 if vim.wo.diff then return '[c' end
                 vim.schedule(function() gitsigns.prev_hunk() end)
                 return '<Ignore>'
-              end, "Previous hunk" } },
-              ["]"] = { c = { function()
+              end, buffer = bufnr, desc = "Previous hunk" },
+              { "]c", function()
                 if vim.wo.diff then return ']c' end
                 vim.schedule(function() gitsigns.next_hunk() end)
                 return '<Ignore>'
-              end, "Next hunk" } },
-            }, { mode = "n", buffer = bufnr })
+              end, buffer = bufnr, desc = "Next hunk" },
+            }, { mode = "n" })
             which_key.register({
-              h = { name = "Git Hunk",
-                s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
-                r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-                S = { "<cmd>Gitsigns stage_buffer<cr>", "Stage Buffer" },
-                u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
-                R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset Buffer" },
-                p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Hunk" },
-                b = { function() gitsigns.blame_line { full = true } end, "Blame Line" },
-                d = { "<cmd>Gitsigns diffthis<cr>", "Diff" },
-                D = { function() gitsigns.diffthis("~") end, "Diff (~)" },
-              },
-              t = { name = "Toggle",
-                b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Current Line Blame" },
-                d = { "<cmd>Gitsigns toggle_deleted<cr>", "Toggle Deleted" },
-              },
-            }, { mode = "n", prefix = "<leader>", buffer = bufnr })
+              { "<leader>h", buffer = bufnr, group = "Git Hunk" },
+              { "<leader>hs", "<cmd>Gitsigns stage_hunk<cr>", buffer = bufnr, desc = "Stage Hunk" },
+              { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", buffer = bufnr, desc = "Reset Hunk" },
+              { "<leader>hS", "<cmd>Gitsigns stage_buffer<cr>", buffer = bufnr, desc = "Stage Buffer" },
+              { "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<cr>", buffer = bufnr, desc = "Undo Stage Hunk" },
+              { "<leader>hR", "<cmd>Gitsigns reset_buffer<cr>", buffer = bufnr, desc = "Reset Buffer" },
+              { "<leader>hp", "<cmd>Gitsigns preview_hunk<cr>", buffer = bufnr, desc = "Preview Hunk" },
+              { "<leader>hb", function() gitsigns.blame_line { full = true } end, buffer = bufnr, desc = "Blame Line" },
+              { "<leader>hd", "<cmd>Gitsigns diffthis<cr>", buffer = bufnr, desc = "Diff" },
+              { "<leader>hD", function() gitsigns.diffthis("~") end, buffer = bufnr, desc = "Diff (~)" },
+              { "<leader>t", buffer = bufnr, group = "Toggle" },
+              { "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", buffer = bufnr, desc = "Toggle Current Line Blame" },
+              { "<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", buffer = bufnr, desc = "Toggle Deleted" },
+            }, { mode = "n" })
           end
         '';
       };

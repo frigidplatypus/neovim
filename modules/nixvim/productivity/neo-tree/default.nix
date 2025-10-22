@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.productivity.neo-tree.enable = mkOption {
     type = types.bool;
-    default = true; # explicitly ensure enabled
+    default = false; # explicitly ensure enabled
     description = "Enable neo-tree productivity plugin.";
   };
 

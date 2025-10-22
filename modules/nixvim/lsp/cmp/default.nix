@@ -11,7 +11,7 @@ in
 {
   options.frgdNeovim.lsp.cmp.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable cmp LSP plugin.";
   };
 

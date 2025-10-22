@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.productivity.comment.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable comment productivity plugin.";
   };
 

@@ -11,7 +11,7 @@ in
 {
   options.frgdNeovim.lsp.lsp-config.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable main LSP config plugin.";
   };
 

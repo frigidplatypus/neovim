@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.formatting.conform.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable conform.nvim formatting plugin.";
   };
 

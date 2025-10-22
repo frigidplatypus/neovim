@@ -3,7 +3,16 @@
   pkgs,
   inputs,
   neovim-settings ? { },
-  neovim-config ? { },
+  neovim-config ? {
+    frgdNeovim.ai.enable = lib.mkForce true;
+    frgdNeovim.formatting.enable = lib.mkForce true;
+    frgdNeovim.git.enable = lib.mkForce true;
+    frgdNeovim.lsp.enable = lib.mkForce true;
+    frgdNeovim.productivity.enable = lib.mkForce true;
+    frgdNeovim.search.enable = lib.mkForce true;
+    frgdNeovim.ui.enable = lib.mkForce true;
+    frgdNeovim.utilities.enable = lib.mkForce true;
+  },
   ...
 }:
 let
@@ -76,7 +85,15 @@ let
             lib = lib;
           };
         }
+        {
+          # # Example: enable individual plugins
+          # frgdNeovim.git.gitsigns.enable = lib.mkDefault true;
+          # frgdNeovim.lsp.cmp.enable = lib.mkDefault true;
+          # frgdNeovim.ui.lualine.enable = true;
+          # # frgdNeovim.git.gitsigns.enable = false;
+        }
         neovim-config
+
       ];
     };
   };

@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.productivity.hop.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable hop productivity plugin.";
   };
 

@@ -7,7 +7,7 @@ in
   options.frgdNeovim.ui.lualine = with types; {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Whether or not to enable the Lualine UI plugin.";
     };
   };

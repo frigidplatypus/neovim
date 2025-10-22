@@ -6,7 +6,7 @@ in
 {
   options.frgdNeovim.formatting.ts-context-commentstring.enable = mkOption {
     type = types.bool;
-    default = true;
+    default = false;
     description = "Enable ts-context-commentstring formatting plugin.";
   };
 
