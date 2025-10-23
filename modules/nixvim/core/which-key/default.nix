@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.core.whichKey;
+  cfg = config.frgdNeovim.core."which-key";
 in
 {
-  options.frgdNeovim.core.whichKey = with types; {
+  options.frgdNeovim.core."which-key" = with types; {
     enable = mkOption {
       type = types.bool;
       default = true;

@@ -3,11 +3,6 @@ with lib;
 let
   cfg = config.frgdNeovim.ai;
 in
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.frgdNeovim.ai;
-in
 {
   options.frgdNeovim.ai.enable = mkOption {
     type = types.bool;
@@ -16,8 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    frgdNeovim.ai.copilotLua.enable = lib.mkDefault true;
-    frgdNeovim.ai.copilotChat.enable = lib.mkDefault true;
-    frgdNeovim.ai.codecompanion.enable = lib.mkDefault true;
+    frgdNeovim.ai.copilot-lua.enable = true;
+    frgdNeovim.ai.copilot-chat.enable = true;
+    frgdNeovim.ai.codecompanion.enable = true;
   };
 }

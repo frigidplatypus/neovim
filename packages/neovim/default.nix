@@ -86,11 +86,6 @@ let
           };
         }
         {
-          # # Example: enable individual plugins
-          # frgdNeovim.git.gitsigns.enable = lib.mkDefault true;
-          # frgdNeovim.lsp.cmp.enable = lib.mkDefault true;
-          # frgdNeovim.ui.lualine.enable = true;
-          # # frgdNeovim.git.gitsigns.enable = false;
         }
         neovim-config
 

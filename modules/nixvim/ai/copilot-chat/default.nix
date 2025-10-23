@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.ai.copilotChat;
+  cfg = config.frgdNeovim.ai."copilot-chat";
 in
 {
-  options.frgdNeovim.ai.copilotChat = with types; {
+  options.frgdNeovim.ai."copilot-chat" = with types; {
     enable = mkOption {
       type = types.bool;
       default = false;

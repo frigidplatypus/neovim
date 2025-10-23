@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.ui.rainbowDelimiters;
+  cfg = config.frgdNeovim.ui."rainbow-delimiters";
 in
 {
-  options.frgdNeovim.ui.rainbowDelimiters = with types; {
+  options.frgdNeovim.ui."rainbow-delimiters" = with types; {
     enable = mkOption {
       type = types.bool;
       default = true;

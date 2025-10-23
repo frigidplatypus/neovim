@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.utilities.tmux;
+  cfg = config.frgdNeovim.core.tmux;
 in
 {
-  options.frgdNeovim.utilities.tmux.enable = mkOption {
+  options.frgdNeovim.core.tmux.enable = mkOption {
     type = types.bool;
     default = true;
     description = "Enable tmux utility plugin.";

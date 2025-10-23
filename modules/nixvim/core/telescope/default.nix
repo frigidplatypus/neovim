@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.frgdNeovim.productivity.telescope;
+  cfg = config.frgdNeovim.core.telescope;
 in
 {
-  options.frgdNeovim.productivity.telescope.enable = mkOption {
+  options.frgdNeovim.core.telescope.enable = mkOption {
     type = types.bool;
     default = true;
     description = "Enable telescope productivity plugin.";

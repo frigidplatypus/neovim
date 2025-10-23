@@ -33,10 +33,15 @@ let
     "tokyonight"
     "vscode"
   ];
-  cfg = config.frgdNeovim.ui.colorschemes;
+  cfg = config.frgdNeovim.ui.colorscheme;
 in
 {
-  options.frgdNeovim.ui.colorschemes = with types; {
+  options.frgdNeovim.ui.colorscheme = with types; {
+    enable = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Enable the colorscheme plugin.";
+    };
     default = mkOption {
       type = types.enum allowedColorschemes;
       default = "gruvbox";
@@ -44,7 +49,7 @@ in
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     colorschemes.${cfg.default}.enable = true;
   };
 }

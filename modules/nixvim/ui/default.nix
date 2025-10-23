@@ -11,9 +11,19 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Add UI submodule enables here, e.g.:
-    # frgdNeovim.ui.lualine.enable = lib.mkDefault true;
-    # frgdNeovim.ui.bufferline.enable = lib.mkDefault true;
-    # ...
+    frgdNeovim.ui.barbar.enable = true;
+    frgdNeovim.ui.bufferline.enable = true;
+    frgdNeovim.ui.colorizer.enable = true;
+    frgdNeovim.ui.colorscheme.enable = true;
+    frgdNeovim.ui.dashboard.enable = true;
+    frgdNeovim.ui.dressing.enable = true;
+    frgdNeovim.ui.goyo.enable = true;
+    frgdNeovim.ui.indent-blankline.enable = true;
+    frgdNeovim.ui.lualine.enable = true;
+    frgdNeovim.ui.noice.enable = true;
+    frgdNeovim.ui.notify.enable = true;
+    frgdNeovim.ui.rainbow-delimiters.enable = true;
+    frgdNeovim.ui.web-devicons.enable = true;
   };
+
 }

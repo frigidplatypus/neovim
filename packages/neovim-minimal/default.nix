@@ -15,7 +15,7 @@ let
       frgdNeovim.core.treesitter.enable = true;
       frgdNeovim.core.treesitter.highlight.enable = true;
       frgdNeovim.ui.web-devicons.enable = true;
-      frgdNeovim.core.whichKey.enable = true;
+      frgdNeovim.core."which-key".enable = true;
     };
   };
 in

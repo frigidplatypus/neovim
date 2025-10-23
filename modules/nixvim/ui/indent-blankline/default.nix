@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.ui.indentBlankline;
+  cfg = config.frgdNeovim.ui."indent-blankline";
 in
 {
-  options.frgdNeovim.ui.indentBlankline = with types; {
+  options.frgdNeovim.ui."indent-blankline" = with types; {
     enable = mkOption {
       type = types.bool;
       default = true;

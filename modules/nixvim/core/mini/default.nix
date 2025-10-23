@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.utilities.mini;
+  cfg = config.frgdNeovim.core.mini;
 in
 {
-  options.frgdNeovim.utilities.mini.enable = mkOption {
+  options.frgdNeovim.core.mini.enable = mkOption {
     type = types.bool;
     default = true;
     description = "Enable mini utility plugin.";

@@ -11,8 +11,14 @@ in
   };
 
   config = mkIf cfg.enable {
-    # Add utilities submodule enables here, e.g.:
-    # frgdNeovim.utilities.toggleterm.enable = lib.mkDefault true;
-    # ...
+    frgdNeovim.utilities.direnv.enable = true;
+    frgdNeovim.utilities.floaterm.enable = true;
+    frgdNeovim.utilities.image.enable = true;
+    frgdNeovim.utilities.markdown-preview.enable = true;
+    frgdNeovim.utilities.nix.enable = true;
+    frgdNeovim.utilities.quickmath.enable = true;
+    frgdNeovim.utilities.render-markdown.enable = true;
+    frgdNeovim.utilities.snacks.enable = true;
+    frgdNeovim.utilities.toggleterm.enable = true;
   };
 }

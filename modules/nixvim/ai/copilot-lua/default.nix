@@ -1,10 +1,10 @@
 { config, lib, ... }:
 with lib;
 let
-  cfg = config.frgdNeovim.ai.copilotLua;
+  cfg = config.frgdNeovim.ai."copilot-lua";
 in
 {
-  options.frgdNeovim.ai.copilotLua = with types; {
+  options.frgdNeovim.ai."copilot-lua" = with types; {
     enable = mkOption {
       type = types.bool;
       default = false;
