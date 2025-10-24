@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 with lib;
 let
   cfg = config.frgdNeovim.formatting.conform;
@@ -11,6 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
+
     plugins."conform-nvim" = {
       enable = true;
       settings = {

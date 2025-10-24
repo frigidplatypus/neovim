@@ -16,9 +16,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    extraPackages = with pkgs; [
-      nixfmt-rfc-style
-    ];
 
     extraPlugins = with pkgs.vimPlugins; [
       actions-preview-nvim
