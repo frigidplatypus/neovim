@@ -11,6 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    plugins.vim-surround.enable = true;
+    plugins.vim-surround.enable = false;
+    plugins."nvim-surround".enable = true;
   };
 }
