@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  helpers,
+  ...
+}:
 with lib;
 let
   cfg = config.frgdNeovim.productivity.comment;

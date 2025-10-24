@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  helpers,
+  ...
+}:
 with lib;
 let
   cfg = config.frgdNeovim.core."which-key";

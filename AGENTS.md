@@ -23,3 +23,9 @@
 ## Tooling / Copilot
 - See `.github/copilot-instructions.md` for project tooling and conventions
 - No Cursor rules found in repository (no `.cursor/` or `.cursorrules` present)
+
+## Agent Commit Approval Policy
+- **Requirement:** The agent must obtain explicit user approval before creating or amending any git commits in this repository.
+- **Approval flow:** The agent will present the intended `git add`/`git commit` changes and wait for the user's confirmation before running the commands.
+- **Pre-commit hooks:** If running repository checks (e.g., `nix flake check`) triggers fixes by pre-commit hooks, the agent will show the diffs and seek approval before staging or committing those auto-fixes.
+- **Reverts and rollbacks:** The agent will not perform automated revert/reset operations without user approval; it will propose options and wait for instruction.

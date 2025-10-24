@@ -30,10 +30,10 @@ in
           untracked.text = "\u2506";
         };
         on_attach = helpers.mkRaw ''
-                    function(bufnr)
-                      -- Intentionally empty: only use gitsigns' visual indicators (signs/blame).
-                      -- No buffer-local keymaps or which-key registrations are created here.
-                    end
+          function(bufnr)
+            -- Intentionally empty: only use gitsigns' visual indicators (signs/blame).
+            -- No buffer-local keymaps or which-key registrations are created here.
+          end
         '';
       };
     };
