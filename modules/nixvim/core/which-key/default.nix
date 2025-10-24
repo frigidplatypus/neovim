@@ -29,5 +29,23 @@ in
       }
     ];
     plugins."which-key".enable = true;
+
+    # Centralized which-key group registrations to avoid duplicate/overwriting labels
+    plugins."which-key".settings = {
+      config = helpers.mkRaw ''
+        function()
+          local ok, wk = pcall(require, "which-key")
+          if not ok then return end
+          wk.register({
+            ["gc"] = { name = "Comment" },
+            ["gb"] = { name = "Comment Block" },
+            ["gr"] = { name = "LSP / References" },
+            ["ys"] = { name = "Surround" },
+            ["yS"] = { name = "Surround (line)" },
+            ["yow"] = { name = "Wrapping" },
+          }, { mode = "n" })
+        end
+      '';
+    };
   };
 }
