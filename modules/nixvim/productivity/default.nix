@@ -18,7 +18,7 @@ in
     frgdNeovim.productivity.navic.enable = true;
     frgdNeovim.productivity.neo-tree.enable = true;
     frgdNeovim.productivity.neoscroll.enable = true;
-    frgdNeovim.productivity.oil.enable = true;
+    frgdNeovim.productivity.oil.enable = false;
     frgdNeovim.productivity.surround.enable = true;
     frgdNeovim.productivity.wrapping.enable = true;
     frgdNeovim.productivity.yanky.enable = true;
