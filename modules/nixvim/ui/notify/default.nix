@@ -7,8 +7,8 @@ in
   options.frgdNeovim.ui.notify = with types; {
     enable = mkOption {
       type = types.bool;
-      default = true;
-      description = "Whether or not to enable the Notify UI plugin.";
+      default = false; # Disabled - replaced by mini.notify
+      description = "Whether or not to enable the Notify UI plugin. Replaced by mini.notify.";
     };
   };
 

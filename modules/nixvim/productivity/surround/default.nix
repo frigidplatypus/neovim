@@ -6,8 +6,8 @@ in
 {
   options.frgdNeovim.productivity.surround.enable = mkOption {
     type = types.bool;
-    default = true;
-    description = "Enable surround productivity plugin.";
+    default = false; # Disabled - replaced by mini.surround
+    description = "Enable surround productivity plugin. Replaced by mini.surround.";
   };
 
   config = mkIf cfg.enable {

@@ -11,8 +11,8 @@ in
 {
   options.frgdNeovim.productivity.comment.enable = mkOption {
     type = types.bool;
-    default = false;
-    description = "Enable comment productivity plugin.";
+    default = false; # Disabled - replaced by mini.comment
+    description = "Enable comment productivity plugin. Replaced by mini.comment.";
   };
 
   config = mkIf cfg.enable {

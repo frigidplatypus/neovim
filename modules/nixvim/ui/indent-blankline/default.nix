@@ -7,8 +7,8 @@ in
   options.frgdNeovim.ui."indent-blankline" = with types; {
     enable = mkOption {
       type = types.bool;
-      default = true;
-      description = "Whether or not to enable the Indent Blankline UI plugin.";
+      default = false; # Disabled - replaced by mini.indentscope
+      description = "Whether or not to enable the Indent Blankline UI plugin. Replaced by mini.indentscope.";
     };
   };
 

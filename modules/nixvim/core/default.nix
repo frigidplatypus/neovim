@@ -15,7 +15,7 @@ in
     frgdNeovim.core.tmux.enable = true;
     frgdNeovim.core.telescope.enable = true;
     # Existing core plugins:
-    frgdNeovim.core.autopairs.enable = true;
+    frgdNeovim.core.autopairs.enable = lib.mkForce false; # Replaced by mini.pairs
     frgdNeovim.core.clipboard.enable = true;
     frgdNeovim.core.treesitter.enable = true;
     frgdNeovim.core."which-key".enable = true;

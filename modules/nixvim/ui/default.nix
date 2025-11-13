@@ -18,10 +18,10 @@ in
     frgdNeovim.ui.dashboard.enable = true;
     frgdNeovim.ui.dressing.enable = true;
     frgdNeovim.ui.goyo.enable = true;
-    frgdNeovim.ui.indent-blankline.enable = true;
+    frgdNeovim.ui.indent-blankline.enable = false; # Replaced by mini.indentscope
     frgdNeovim.ui.lualine.enable = true;
     frgdNeovim.ui.noice.enable = true;
-    frgdNeovim.ui.notify.enable = true;
+    frgdNeovim.ui.notify.enable = false; # Replaced by mini.notify
     frgdNeovim.ui.rainbow-delimiters.enable = true;
     frgdNeovim.ui.web-devicons.enable = true;
   };

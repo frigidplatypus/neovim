@@ -7,8 +7,8 @@ in
   options.frgdNeovim.core.autopairs = with types; {
     enable = mkOption {
       type = types.bool;
-      default = true;
-      description = "Whether or not to enable the nvim-autopairs plugin.";
+      default = false; # Disabled - replaced by mini.pairs
+      description = "Whether or not to enable the nvim-autopairs plugin. Replaced by mini.pairs.";
     };
   };
 

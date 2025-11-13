@@ -12,14 +12,14 @@ in
 
   config = mkIf cfg.enable {
     frgdNeovim.productivity.auto-session.enable = true;
-    frgdNeovim.productivity.comment.enable = true;
+    frgdNeovim.productivity.comment.enable = false; # Replaced by mini.comment
     frgdNeovim.productivity.hop.enable = true;
     frgdNeovim.productivity.inc-rename.enable = true;
     frgdNeovim.productivity.navic.enable = true;
     frgdNeovim.productivity.neo-tree.enable = true;
     frgdNeovim.productivity.neoscroll.enable = true;
     frgdNeovim.productivity.oil.enable = false;
-    frgdNeovim.productivity.surround.enable = true;
+    frgdNeovim.productivity.surround.enable = false; # Replaced by mini.surround
     frgdNeovim.productivity.wrapping.enable = true;
     frgdNeovim.productivity.yanky.enable = true;
   };

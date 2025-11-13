@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     frgdNeovim.formatting.conform.enable = true;
-    frgdNeovim.formatting.trim.enable = true;
+    frgdNeovim.formatting.trim.enable = false; # Replaced by mini.trailspace
     frgdNeovim.formatting.ts-context-commentstring.enable = true;
   };
 }
