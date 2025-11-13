@@ -65,7 +65,8 @@ in
           desc = "Snacks: Help";
         };
       }
-    ] ++ lib.optionals config.frgdNeovim.search.neoclip.enable [
+    ]
+    ++ lib.optionals config.frgdNeovim.search.neoclip.enable [
       {
         key = "<leader>fy";
         action = "<cmd>Telescope neoclip<cr>";
