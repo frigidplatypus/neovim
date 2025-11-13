@@ -59,9 +59,9 @@ in
       # Comment keybindings (replaces comment.nvim mappings)
       {
         key = "gcc";
-        action = "<cmd>lua MiniComment.operator('line')<cr>";
+        action = "<cmd>lua MiniComment.operator()<cr>";
         options = {
-          desc = "Mini: Toggle line comment";
+          desc = "Mini: Toggle comment";
         };
       }
       {
