@@ -106,20 +106,48 @@ in
         # Additional useful mini plugins
         bracketed = {
           settings = {
-            buffer = { suffix = "b"; };
-            comment = { suffix = "c"; };
-            conflict = { suffix = "x"; };
-            diagnostic = { suffix = "d"; };
-            file = { suffix = "f"; };
-            indent = { suffix = "i"; };
-            jump = { suffix = "j"; };
-            location = { suffix = "l"; };
-            oldfile = { suffix = "o"; };
-            quickfix = { suffix = "q"; };
-            treesitter = { suffix = "t"; };
-            undo = { suffix = "u"; };
-            window = { suffix = "w"; };
-            yank = { suffix = "y"; };
+            buffer = {
+              suffix = "b";
+            };
+            comment = {
+              suffix = "c";
+            };
+            conflict = {
+              suffix = "x";
+            };
+            diagnostic = {
+              suffix = "d";
+            };
+            file = {
+              suffix = "f";
+            };
+            indent = {
+              suffix = "i";
+            };
+            jump = {
+              suffix = "j";
+            };
+            location = {
+              suffix = "l";
+            };
+            oldfile = {
+              suffix = "o";
+            };
+            quickfix = {
+              suffix = "q";
+            };
+            treesitter = {
+              suffix = "t";
+            };
+            undo = {
+              suffix = "u";
+            };
+            window = {
+              suffix = "w";
+            };
+            yank = {
+              suffix = "y";
+            };
           };
         };
 
@@ -143,11 +171,23 @@ in
 
         operators = {
           settings = {
-            evaluate = { prefix = "g="; };
-            exchange = { prefix = "gx"; reindent_linewise = true; };
-            multiply = { prefix = "gm"; };
-            replace = { prefix = "gr"; reindent_linewise = true; };
-            sort = { prefix = "gs"; };
+            evaluate = {
+              prefix = "g=";
+            };
+            exchange = {
+              prefix = "gx";
+              reindent_linewise = true;
+            };
+            multiply = {
+              prefix = "gm";
+            };
+            replace = {
+              prefix = "gr";
+              reindent_linewise = true;
+            };
+            sort = {
+              prefix = "gs";
+            };
           };
         };
 
