@@ -39,7 +39,19 @@ in
         };
 
         # Surround (replaces nvim-surround)
-        surround = { };
+        surround = {
+          settings = {
+            mappings = {
+              add = "ys";
+              delete = "ds";
+              find = "";
+              find_left = "";
+              highlight = "";
+              replace = "cs";
+              update_n_lines = "";
+            };
+          };
+        };
 
         # Trailspace (replaces trim)
         trailspace = { };
@@ -66,28 +78,7 @@ in
         };
       }
       # Comment keybindings are handled by mini.comment settings above
-      # Surround keybindings (replaces nvim-surround mappings)
-      {
-        key = "ys";
-        action = "<cmd>lua MiniSurround.add('normal')<cr>";
-        options = {
-          desc = "Mini: Add surround";
-        };
-      }
-      {
-        key = "ds";
-        action = "<cmd>lua MiniSurround.delete()<cr>";
-        options = {
-          desc = "Mini: Delete surround";
-        };
-      }
-      {
-        key = "cs";
-        action = "<cmd>lua MiniSurround.replace()<cr>";
-        options = {
-          desc = "Mini: Change surround";
-        };
-      }
+      # Surround keybindings are handled by mini.surround settings above
       # Trailspace keybinding (replaces trim)
       {
         key = "<leader>cw";
