@@ -45,5 +45,14 @@ in
         preview = true;
       };
     };
+    keymaps = [
+      {
+        key = "<leader>fy";
+        action = "<cmd>Telescope neoclip<cr>";
+        options = {
+          desc = "Telescope: Clipboard history";
+        };
+      }
+    ];
   };
 }
