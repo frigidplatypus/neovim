@@ -59,14 +59,14 @@ in
       # Comment keybindings (replaces comment.nvim mappings)
       {
         key = "gcc";
-        action = "<cmd>lua MiniComment.toggle()<cr>";
+        action = "<cmd>lua require('mini.comment').operator()<cr>";
         options = {
           desc = "Mini: Toggle line comment";
         };
       }
       {
         key = "gbc";
-        action = "<cmd>lua MiniComment.toggle()<cr>";
+        action = "<cmd>lua require('mini.comment').operator()<cr>";
         options = {
           desc = "Mini: Toggle block comment";
         };
