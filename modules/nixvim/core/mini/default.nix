@@ -27,7 +27,16 @@ in
         notify = { };
 
         # Comments (replaces comment.nvim)
-        comment = { };
+        comment = {
+          settings = {
+            mappings = {
+              comment = "gc";
+              comment_line = "gcc";
+              comment_visual = "gc";
+              textobject = "gc";
+            };
+          };
+        };
 
         # Surround (replaces nvim-surround)
         surround = { };
@@ -56,21 +65,7 @@ in
           desc = "Mini: File explorer";
         };
       }
-      # Comment keybindings (replaces comment.nvim mappings)
-      {
-        key = "gcc";
-        action = "<cmd>lua require('mini.comment').operator()<cr>";
-        options = {
-          desc = "Mini: Toggle line comment";
-        };
-      }
-      {
-        key = "gbc";
-        action = "<cmd>lua require('mini.comment').operator()<cr>";
-        options = {
-          desc = "Mini: Toggle block comment";
-        };
-      }
+      # Comment keybindings are handled by mini.comment settings above
       # Surround keybindings (replaces nvim-surround mappings)
       {
         key = "ys";
