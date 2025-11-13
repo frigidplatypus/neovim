@@ -4,10 +4,9 @@
 - Build main package: `nix build .#neovim`
 - Build variant: `nix build .#neovim-autopairs-disabled`
 - Evaluate config: `nix eval .#packages.x86_64-linux.neovim-dev.config --show-trace`
-- Run a single test: execute scripts in `tests/build/` or `tests/eval/` (example: `tests/build/test_autopairs_toggle.sh`)
-- Run all build tests: run the scripts in `tests/build/` or use `./scripts/validate-config.sh <profile-file>` for lint/validation
-- Namespace check: `./scripts/validate-namespace.sh`
-- Module enable scaffold check: `./scripts/add-module-enable.sh [--dry-run|--apply]`
+- Run validation: `./scripts/validate-config.sh <profile-file>` or `./scripts/validate-namespace.sh`
+- Module scaffold check: `./scripts/add-module-enable.sh [--dry-run|--apply]`
+- Format code: `nix fmt` (uses nixfmt-rfc-style from treefmt.toml)
 
 ## Code Style Guidelines
 - Use Nix conventions for flakes, modules, overlays and follow Snowfall Lib discovery patterns
@@ -17,7 +16,6 @@
 - Formatting: 2-space indentation, no trailing whitespace, keep expressions short and readable
 - Bash scripts: `set -euo pipefail`, descriptive errors, avoid silent failures
 - Error handling: prefer explicit failures with helpful messages; use `--show-trace` for Nix evaluations
-- Tests: prefer small, isolated shell scripts under `tests/` that exit non-zero on failure
 - Documentation: comment non-obvious logic and reference related spec files under `specs/`
 
 ## Tooling / Copilot
