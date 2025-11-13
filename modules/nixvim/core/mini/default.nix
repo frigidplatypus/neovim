@@ -14,9 +14,8 @@ in
     plugins.mini = {
       enable = true;
       modules = {
-        # File navigation (disabled - using neotree for now)
+        # File navigation
         files = {
-          enabled = false;
           settings = {
             mappings = {
               close = "q";
@@ -36,7 +35,7 @@ in
               use_as_default_explorer = false;
             };
             windows = {
-              max_number = 1000; # Large number instead of math.huge
+              max_number = 1000;
               preview = true;
               width_focus = 50;
               width_nofocus = 15;
@@ -232,6 +231,13 @@ in
       };
     };
     keymaps = [
+      {
+        key = "<leader>fm";
+        action = "<cmd>lua MiniFiles.open()<cr>";
+        options = {
+          desc = "Mini: File explorer";
+        };
+      }
       # Comment keybindings are handled by mini.comment settings above
       # Surround keybindings are handled by mini.surround settings above
       # Trailspace keybinding (replaces trim)
