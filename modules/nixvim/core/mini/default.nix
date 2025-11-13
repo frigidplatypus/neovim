@@ -14,8 +14,36 @@ in
     plugins.mini = {
       enable = true;
       modules = {
-        # File navigation
-        files = { };
+        # File navigation (disabled - using neotree for now)
+        files = {
+          enabled = false;
+          settings = {
+            mappings = {
+              close = "q";
+              go_in = "l";
+              go_in_plus = "L";
+              go_out = "h";
+              go_out_plus = "H";
+              reset = "<BS>";
+              reveal_cwd = "@";
+              show_help = "g?";
+              synchronize = "=";
+              trim_left = "<";
+              trim_right = ">";
+            };
+            options = {
+              permanent_delete = false;
+              use_as_default_explorer = false;
+            };
+            windows = {
+              max_number = 1000; # Large number instead of math.huge
+              preview = true;
+              width_focus = 50;
+              width_nofocus = 15;
+              width_preview = 25;
+            };
+          };
+        };
 
         # Auto pairs (replaces nvim-autopairs)
         pairs = {
@@ -204,13 +232,6 @@ in
       };
     };
     keymaps = [
-      {
-        key = "<leader>fm";
-        action = "<cmd>lua MiniFiles.open()<cr>";
-        options = {
-          desc = "Mini: File explorer";
-        };
-      }
       # Comment keybindings are handled by mini.comment settings above
       # Surround keybindings are handled by mini.surround settings above
       # Trailspace keybinding (replaces trim)
