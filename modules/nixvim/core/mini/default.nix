@@ -18,13 +18,42 @@ in
         files = { };
 
         # Auto pairs (replaces nvim-autopairs)
-        pairs = { };
+        pairs = {
+          settings = {
+            modes = {
+              insert = true;
+              command = true;
+              terminal = false;
+            };
+          };
+        };
 
         # Indentation guides (replaces indent-blankline)
-        indentscope = { };
+        indentscope = {
+          settings = {
+            symbol = "╎";
+            options = {
+              indent_at_cursor = true;
+              n_lines = 10000;
+            };
+            mappings = {
+              object_scope = "ii";
+              object_scope_with_border = "ai";
+              goto_top = "[i";
+              goto_bottom = "]i";
+            };
+          };
+        };
 
         # Notifications (replaces nvim-notify and snacks.notifier)
-        notify = { };
+        notify = {
+          settings = {
+            window = {
+              max_width_share = 0.382;
+              winblend = 25;
+            };
+          };
+        };
 
         # Comments (replaces comment.nvim)
         comment = {
@@ -54,19 +83,84 @@ in
         };
 
         # Trailspace (replaces trim)
-        trailspace = { };
+        trailspace = {
+          settings = {
+            only_in_normal_buffers = false;
+          };
+        };
 
         # Cursor word highlighting (replaces snacks.words)
-        cursorword = { };
+        cursorword = {
+          settings = {
+            delay = 50;
+          };
+        };
 
         # Statusline (replaces snacks.statuscolumn)
-        statusline = { };
+        statusline = {
+          settings = {
+            use_icons = false;
+          };
+        };
 
         # Additional useful mini plugins
-        bracketed = { };
-        move = { };
-        operators = { };
-        splitjoin = { };
+        bracketed = {
+          settings = {
+            buffer = { suffix = "b"; };
+            comment = { suffix = "c"; };
+            conflict = { suffix = "x"; };
+            diagnostic = { suffix = "d"; };
+            file = { suffix = "f"; };
+            indent = { suffix = "i"; };
+            jump = { suffix = "j"; };
+            location = { suffix = "l"; };
+            oldfile = { suffix = "o"; };
+            quickfix = { suffix = "q"; };
+            treesitter = { suffix = "t"; };
+            undo = { suffix = "u"; };
+            window = { suffix = "w"; };
+            yank = { suffix = "y"; };
+          };
+        };
+
+        move = {
+          settings = {
+            mappings = {
+              left = "<M-h>";
+              right = "<M-l>";
+              down = "<M-j>";
+              up = "<M-k>";
+              line_left = "<M-h>";
+              line_right = "<M-l>";
+              line_down = "<M-j>";
+              line_up = "<M-k>";
+            };
+            options = {
+              reindent_linewise = true;
+            };
+          };
+        };
+
+        operators = {
+          settings = {
+            evaluate = { prefix = "g="; };
+            exchange = { prefix = "gx"; reindent_linewise = true; };
+            multiply = { prefix = "gm"; };
+            replace = { prefix = "gr"; reindent_linewise = true; };
+            sort = { prefix = "gs"; };
+          };
+        };
+
+        splitjoin = {
+          settings = {
+            mappings = {
+              toggle = "gS";
+            };
+            detect = {
+              separator = ",";
+            };
+          };
+        };
       };
     };
     keymaps = [
