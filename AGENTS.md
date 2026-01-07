@@ -21,4 +21,4 @@
 ## Tooling & Policy
 - Copilot guidance: see `.github/copilot-instructions.md`
 - Cursor rules: no `.cursor/` or `.cursorrules` were found in repo
-- Agent Commit Policy: agents MUST obtain explicit user approval before running `git add`/`git commit`
+- Agent Commit Policy: agents MUST obtain an explicit user request before creating any git commits. When a user requests a commit the agent will show the staged diff, the list of files to be committed, and wait for final confirmation before running `git add`/`git commit`. Agents MUST NOT push to remotes without explicit instruction.
