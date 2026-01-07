@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  helpers,
   ...
 }:
 with lib;
 let
   cfg = config.frgdNeovim.core."which-key";
+  helpers = if lib ? nixvim && lib.nixvim ? helpers then lib.nixvim.helpers else { mkRaw = value: { __raw = value; }; };
 in
 {
   options.frgdNeovim.core."which-key" = with types; {

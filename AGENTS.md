@@ -1,29 +1,24 @@
 # AGENTS.md
 
-## Build, Lint, and Test Commands
-- Build main package: `nix build .#neovim`
-- Build variant: `nix build .#neovim-autopairs-disabled`
-- Evaluate config: `nix eval .#packages.x86_64-linux.neovim-dev.config --show-trace`
-- Run validation: `./scripts/validate-config.sh <profile-file>` or `./scripts/validate-namespace.sh`
-- Module scaffold check: `./scripts/add-module-enable.sh [--dry-run|--apply]`
-- Format code: `nix fmt` (uses nixfmt-rfc-style from treefmt.toml)
+## Build / Lint / Test
+- `nix build .#neovim` (build main)
+- `nix flake check` (evaluation + validation)
+- `nix eval .#packages.x86_64-linux.neovim-dev.config --show-trace`
+- `./scripts/validate-config.sh <profile-file>` (profile validation)
+- `nix fmt` (format code via treefmt.toml / nixfmt-rfc-style)
+- Single-target test/build: `nix build .#packages.x86_64-linux.neovim-test-<MODULE>`
+- If language tests exist (Python): `pytest tests/path/to/file.py::TestClass::test_name`
 
-## Code Style Guidelines
-- Use Nix conventions for flakes, modules, overlays and follow Snowfall Lib discovery patterns
-- File names: `kebab-case`; Nix attributes: `camelCase`; Module names: `PascalCase`
-- Imports: use relative paths and keep `imports` at the top of `.nix` files
-- Module options: use explicit types (`options.frgdNeovim.nixvim.<module> = with lib.types; { enable = mkBoolOpt false; };`)
-- Formatting: 2-space indentation, no trailing whitespace, keep expressions short and readable
-- Bash scripts: `set -euo pipefail`, descriptive errors, avoid silent failures
-- Error handling: prefer explicit failures with helpful messages; use `--show-trace` for Nix evaluations
-- Documentation: comment non-obvious logic and reference related spec files under `specs/`
+## Style Guidelines
+- Nix conventions: flakes, modules, overlays follow Snowfall Lib discovery patterns; keep `imports` at the top of `.nix` files
+- Naming: files `kebab-case`; Nix attributes `camelCase`; Module names `PascalCase`
+- Formatting: 2-space indentation, no trailing whitespace, prefer short, readable expressions
+- Module options/types: use explicit `lib.types` and the `mk*` helpers for options
+- Bash scripts: `set -euo pipefail`, use descriptive errors, avoid silent failures
+- Error handling: prefer explicit failures with helpful messages; use `--show-trace` for Nix evaluation
+- Documentation: comment non-obvious logic and reference related files under `specs/`
 
-## Tooling / Copilot
-- See `.github/copilot-instructions.md` for project tooling and conventions
-- No Cursor rules found in repository (no `.cursor/` or `.cursorrules` present)
-
-## Agent Commit Approval Policy
-- **Requirement:** The agent must obtain explicit user approval before creating or amending any git commits in this repository.
-- **Approval flow:** The agent will present the intended `git add`/`git commit` changes and wait for the user's confirmation before running the commands.
-- **Pre-commit hooks:** If running repository checks (e.g., `nix flake check`) triggers fixes by pre-commit hooks, the agent will show the diffs and seek approval before staging or committing those auto-fixes.
-- **Reverts and rollbacks:** The agent will not perform automated revert/reset operations without user approval; it will propose options and wait for instruction.
+## Tooling & Policy
+- Copilot guidance: see `.github/copilot-instructions.md`
+- Cursor rules: no `.cursor/` or `.cursorrules` were found in repo
+- Agent Commit Policy: agents MUST obtain explicit user approval before running `git add`/`git commit`

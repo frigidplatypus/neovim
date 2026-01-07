@@ -1,12 +1,12 @@
 {
   lib,
-  helpers,
   config,
   ...
 }:
 with lib;
 let
   cfg = config.frgdNeovim.lsp.cmp;
+  helpers = if lib ? nixvim && lib.nixvim ? helpers then lib.nixvim.helpers else { mkRaw = value: { __raw = value; }; };
 in
 {
   options.frgdNeovim.lsp.cmp.enable = mkOption {
