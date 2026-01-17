@@ -34,7 +34,9 @@ in
           additional_vim_regex_highlighting = cfg.highlight.additionalVimRegexHighlighting;
         };
       };
-      folding = { enable = true; };
+      folding = {
+        enable = true;
+      };
       nixvimInjections = true;
     };
     keymaps = [

@@ -6,7 +6,11 @@
 with lib;
 let
   cfg = config.frgdNeovim.productivity.comment;
-  helpers = if lib ? nixvim && lib.nixvim ? helpers then lib.nixvim.helpers else { mkRaw = value: { __raw = value; }; };
+  helpers =
+    if lib ? nixvim && lib.nixvim ? helpers then
+      lib.nixvim.helpers
+    else
+      { mkRaw = value: { __raw = value; }; };
 in
 {
   options.frgdNeovim.productivity.comment.enable = mkOption {
