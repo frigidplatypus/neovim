@@ -29,11 +29,11 @@ let
           workspaces = [
             {
               name = "notes";
-              path = "/home/justin/notes";
+              path = "~/notes";
             }
           ];
           templates = {
-            folder = "/home/justin/notes/Templates";
+            folder = "~/notes/Templates";
           };
         };
 
@@ -84,7 +84,7 @@ let
   notesScript = pkgs.writeShellScriptBin "notes" ''
     #!/bin/sh
     set -euo pipefail
-    NOTES_DIR="/home/justin/notes"
+    NOTES_DIR="$HOME/notes"
     cd "$NOTES_DIR" || { echo "notes: failed to cd to $NOTES_DIR" >&2; exit 1; }
     exec ${neovimNotes}/bin/nvim ${"\${@:-$NOTES_DIR}"}
   '';
@@ -92,16 +92,15 @@ in
 stdenv.mkDerivation {
   pname = "neovim-notes";
   version = "0.1.0";
-  src = ./.;
-  buildInputs = [
-    neovimNotes
-    notesScript
-  ];
+  dontUnpack = true;
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/bin
-    cp -r ${notesScript}/bin/notes $out/bin/
+    install -m755 ${notesScript}/bin/notes $out/bin/notes
+    runHook postInstall
   '';
   meta = (neovimNotes.meta or { }) // {
     description = "Neovim (notes profile; core, ui, and markdown plugins enabled) with notes launcher";
+    mainProgram = "notes";
   };
 }
