@@ -20,6 +20,8 @@ let
         frgdNeovim.core.telescope.enable = lib.mkForce false;
         # Disable snacks to prevent <leader><leader> keymap conflict with obsidian
         frgdNeovim.utilities.snacks.enable = lib.mkForce false;
+        # Disable dashboard since notes launches directly into the notes directory
+        frgdNeovim.ui.dashboard.enable = lib.mkForce false;
         # Enable obsidian plugin directly for local notes vault
         plugins.obsidian.enable = lib.mkForce true;
         plugins.obsidian.settings = {
