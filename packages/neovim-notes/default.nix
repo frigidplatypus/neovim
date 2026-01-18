@@ -96,7 +96,6 @@ stdenv.mkDerivation {
   ];
   installPhase = ''
     mkdir -p $out/bin
-    cp -r ${neovimNotes}/bin/* $out/bin/
     cp -r ${notesScript}/bin/notes $out/bin/
   '';
   meta = (neovimNotes.meta or { }) // {
