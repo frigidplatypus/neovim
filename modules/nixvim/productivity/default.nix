@@ -18,6 +18,7 @@ in
     frgdNeovim.productivity.navic.enable = true;
     frgdNeovim.productivity.neo-tree.enable = true;
     frgdNeovim.productivity.neoscroll.enable = true;
+    frgdNeovim.productivity.obsidian.enable = false;
     frgdNeovim.productivity.oil.enable = false;
     frgdNeovim.productivity.surround.enable = false; # Replaced by mini.surround
     frgdNeovim.productivity.wrapping.enable = true;
