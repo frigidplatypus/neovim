@@ -82,8 +82,9 @@ let
   notesScript = pkgs.writeShellScriptBin "notes" ''
     #!/bin/sh
     set -euo pipefail
-    cd /home/justin/notes || { echo "notes: failed to cd to /home/justin/notes" >&2; exit 1; }
-    exec ${neovimNotes}/bin/nvim "$@"
+    NOTES_DIR="/home/justin/notes"
+    cd "$NOTES_DIR" || { echo "notes: failed to cd to $NOTES_DIR" >&2; exit 1; }
+    exec ${neovimNotes}/bin/nvim ${"\${@:-$NOTES_DIR}"}
   '';
 in
 stdenv.mkDerivation {
