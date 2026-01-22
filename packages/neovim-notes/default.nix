@@ -41,7 +41,7 @@ let
                 path = "~/notes";
               }
             ];
-            templatesFolder = "~/notes/Templates";
+            templatesFolder = "Templates";
           };
 
           # === Utilities ===
