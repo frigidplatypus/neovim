@@ -54,9 +54,9 @@
           hooks = {
             nixfmt = {
               enable = true;
-                entry = "${channels.nixpkgs.nixfmt}/bin/nixfmt";
-                extraPackages = [
-                  channels.nixpkgs.nixfmt
+              entry = "${channels.nixpkgs.nixfmt}/bin/nixfmt";
+              extraPackages = [
+                channels.nixpkgs.nixfmt
               ];
             };
           };
