@@ -11,8 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    frgdNeovim.ai.copilot-lua.enable = true;
-    frgdNeovim.ai.copilot-chat.enable = true;
+    frgdNeovim.ai.copilot-lua.enable = false;
+    frgdNeovim.ai.copilot-chat.enable = false;
     frgdNeovim.ai.codecompanion.enable = true;
   };
 }

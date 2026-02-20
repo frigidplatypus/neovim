@@ -47,16 +47,16 @@
       # new variants (e.g. neovim-kanagawa, neovim-minimal, neovim-dev, etc.).
 
       outputs-builder = channels: {
-        formatter = channels.nixpkgs.nixfmt-rfc-style;
+        formatter = channels.nixpkgs.nixfmt;
 
         checks.pre-commit-check = inputs.pre-commit-hooks.lib.${channels.nixpkgs.system}.run {
           src = ./.;
           hooks = {
             nixfmt = {
               enable = true;
-              entry = "${channels.nixpkgs.nixfmt-rfc-style}/bin/nixfmt";
-              extraPackages = [
-                channels.nixpkgs.nixfmt-rfc-style
+                entry = "${channels.nixpkgs.nixfmt}/bin/nixfmt";
+                extraPackages = [
+                  channels.nixpkgs.nixfmt
               ];
             };
           };
