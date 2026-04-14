@@ -13,6 +13,7 @@ in
   config = mkIf cfg.enable {
     frgdNeovim.ai.copilot-lua.enable = false;
     frgdNeovim.ai.copilot-chat.enable = false;
-    frgdNeovim.ai.codecompanion.enable = true;
+    frgdNeovim.ai.codecompanion.enable = false;
+    frgdNeovim.ai.opencode.enable = true;
   };
 }
