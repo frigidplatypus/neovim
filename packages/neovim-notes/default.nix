@@ -76,6 +76,7 @@ let
             ];
             templatesFolder = "Templates";
           };
+          productivity.silverbullet.enable = lib.mkForce true;
 
           # Marksman is useful for Markdown without enabling the repository's full
           # LSP category.

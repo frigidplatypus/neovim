@@ -9,6 +9,7 @@
     frgdNeovim.git.enable = lib.mkForce true;
     frgdNeovim.lsp.enable = lib.mkForce true;
     frgdNeovim.productivity.enable = lib.mkForce true;
+    frgdNeovim.productivity.silverbullet.enable = lib.mkForce true;
     frgdNeovim.search.enable = lib.mkForce true;
     frgdNeovim.ui.enable = lib.mkForce true;
     frgdNeovim.utilities.enable = lib.mkForce true;

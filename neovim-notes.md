@@ -26,6 +26,17 @@ The `neovim-notes` package uses Space as both `mapleader` and `maplocalleader`.
 | --- | --- | --- |
 | Normal | `<leader>gg` | Open Lazygit in the current repository |
 
+## SilverBullet
+
+| Mode | Key | Action |
+| --- | --- | --- |
+| Normal | `<leader>sf` | Find a SilverBullet page |
+| Normal | `<leader>ss` | Search SilverBullet pages |
+| Normal | `<leader>sb` | Show SilverBullet backlinks |
+| Normal | `<leader>sj` | Open the SilverBullet journal |
+| Normal | `<leader>sk` | Set the SilverBullet token for this session |
+| Normal in SilverBullet buffers | `<CR>` | Follow a SilverBullet wiki link |
+
 ## Obsidian Navigation
 
 | Mode | Key | Action |
@@ -60,3 +71,6 @@ The `neovim-notes` package uses Space as both `mapleader` and `maplocalleader`.
 
 The launcher is `notes`. With no arguments it opens `$HOME/notes`; arguments are
 passed through to Neovim, for example `notes README.md`.
+
+SilverBullet uses `SILVERBULLET_URL` for the space URL and
+`SILVERBULLET_TOKEN` for authentication. Set both before running `notes`.
