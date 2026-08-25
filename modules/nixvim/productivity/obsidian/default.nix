@@ -39,13 +39,34 @@ in
       default = null;
       description = "Path to templates folder";
     };
+
+    autoLoad = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Load Obsidian.nvim when Neovim starts.";
+    };
+
+    picker = mkOption {
+      type = types.enum [
+        "telescope.nvim"
+        "fzf-lua"
+        "mini.pick"
+      ];
+      default = "telescope.nvim";
+      description = "Picker used by Obsidian.nvim search commands.";
+    };
+
   };
 
   config = mkIf cfg.enable {
     plugins.obsidian = {
       enable = true;
+      autoLoad = cfg.autoLoad;
       settings = mkMerge [
-        { workspaces = cfg.workspaces; }
+        {
+          workspaces = cfg.workspaces;
+          picker.name = cfg.picker;
+        }
         (mkIf (cfg.templatesFolder != null) {
           templates = {
             folder = cfg.templatesFolder;

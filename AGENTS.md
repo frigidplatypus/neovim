@@ -1,24 +1,19 @@
-# AGENTS.md
+# Agent Notes
 
-## Build / Lint / Test
-- `nix build .#neovim` (build main)
-- `nix flake check` (evaluation + validation)
-- `nix eval .#packages.x86_64-linux.neovim-dev.config --show-trace`
-- `./scripts/validate-config.sh <profile-file>` (profile validation)
-- `nix fmt` (format code via treefmt.toml / nixfmt-rfc-style)
-- Single-target test/build: `nix build .#packages.x86_64-linux.neovim-test-<MODULE>`
-- If language tests exist (Python): `pytest tests/path/to/file.py::TestClass::test_name`
+## Commands
+- `nix flake check` evaluates the flake, package outputs, and the pre-commit check.
+- `nix build .#neovim` builds the full profile. Other package outputs are `neovim-kanagawa`, `neovim-minimal`, and `neovim-notes`.
+- `nix fmt` formats Nix files with the flake's `nixfmt` formatter.
+- `nix develop` enters the dev shell and installs the pre-commit shell hook.
+- `./scripts/validate-namespace.sh` requires Fish and rejects deprecated namespace references.
+- `./scripts/validate-config.sh <profile-file>` must be run from the repository root against a temporary profile list; it heuristically treats every quoted string as a module name and compares them with `specs/002-modules-should-have/core-modules.nix`.
 
-## Style Guidelines
-- Nix conventions: flakes, modules, overlays follow Snowfall Lib discovery patterns; keep `imports` at the top of `.nix` files
-- Naming: files `kebab-case`; Nix attributes `camelCase`; Module names `PascalCase`
-- Formatting: 2-space indentation, no trailing whitespace, prefer short, readable expressions
-- Module options/types: use explicit `lib.types` and the `mk*` helpers for options
-- Bash scripts: `set -euo pipefail`, use descriptive errors, avoid silent failures
-- Error handling: prefer explicit failures with helpful messages; use `--show-trace` for Nix evaluation
-- Documentation: comment non-obvious logic and reference related files under `specs/`
+## Structure
+- This is a Snowfall Lib flake; do not manually register package or module files. Packages live at `packages/*/default.nix`, and feature modules are auto-discovered under `modules/nixvim/**/default.nix`.
+- Module configuration uses the `frgdNeovim` namespace, including `frgdNeovim.nixvim.<module>.*` enable options.
+- The canonical minimal-profile module list is `specs/002-modules-should-have/core-modules.nix`; update it when changing that profile's supported core modules.
+- The contract files under `specs/002-modules-should-have/tests/contracts/` are placeholders, not runnable test cases; `nix flake check` is the primary automated verification.
 
-## Tooling & Policy
-- Copilot guidance: see `.github/copilot-instructions.md`
-- Cursor rules: no `.cursor/` or `.cursorrules` were found in repo
-- Agent Commit Policy: agents MUST obtain an explicit user request before creating any git commits. When a user requests a commit the agent will show the staged diff, the list of files to be committed, and wait for final confirmation before running `git add`/`git commit`. Agents MUST NOT push to remotes without explicit instruction.
+## Formatting
+- Format changed Nix files with `nix fmt`; the flake formatter covers `*.nix`.
+- Preserve Snowfall discovery paths and use the existing module option/config pattern when adding a module.
