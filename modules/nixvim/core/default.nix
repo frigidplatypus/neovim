@@ -12,7 +12,8 @@ in
 
   config = mkIf cfg.enable {
     frgdNeovim.core.mini.enable = true;
-    frgdNeovim.core.tmux.enable = true;
+    frgdNeovim.core.herdr.enable = true;
+    frgdNeovim.core.tmux.enable = false;
     frgdNeovim.core.telescope.enable = true;
     # Existing core plugins:
     frgdNeovim.core.autopairs.enable = lib.mkForce false; # Replaced by mini.pairs
